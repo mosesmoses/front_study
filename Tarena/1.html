@@ -3,15 +3,22 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title></title>
-  <script type="text/javascript" >
-    alert("Hello, World");//?? why run before display button?
-
-    function method1(){
+  <script type="text/javascript">
+    //    alert("Hello, World");//?? why run before display button?
+    function method1() {
       alert("hello in method1");
     }
+    //数据类型隐式转换
+    var number = 5;
+    var str = "string";
+    var b1 = true;
+    var b2 = false;
+    alert(number + str);
+    alert(number + b1);
+    alert(str + b2);
+    alert(b1 + b1);
 
-    var aa="\u4f60";
-    alert(aa);
+
   </script>
   <script type="text/javascript" src="../Tarena-js/myjs.js"></script>
 </head>
