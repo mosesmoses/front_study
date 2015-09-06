@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<html lang="zh-CN">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta charset="UTF-8">
+<title>Example 1-1</title>
+<style>
+  p {
+    color: red;
+  }
+
+  span {
+    color: blue;
+  }
+</style>
+
+<script src="jquery-1.11.3.js"></script>
+
+</head>
+
+<body>
+<p>Has an attached custom event.</p>
+<button>Trigger custom event</button>
+<span style="display:none;"></span>
+<script>
+  $('p').bind('customEvent', function (e, myname, myvalue) {
+    $(this).text(myname + ", hi there!");
+    $('span').stop().css("opacity", 1).text("myName=" + myname).fadeIn(500).fadeOut(2000);
+  });
+  $('button').click(function () {
+    $('p').trigger('customEvent', ['John']);
+  });
+
+</script>
+
+</body>
+
+
+</html>
+
