@@ -4,31 +4,51 @@
   <meta charset="UTF-8">
   <title>Navigator</title>
   <style type="text/css">
+    body{
+      background-color: #000000;
+    }
+
+    #nav {
+      list-style: none;
+      height: 26px;
+      border-bottom: 2px solid #ffffff;
+    }
+
     #nav li{
       float: left;
+      font-size: 14px;
+      font-weight: bold;
     }
 
-    #nav a{
+    #nav li a{
       display: block;
-      color: black;
+      color: #ffffff;
       background-color: #ececec;
-      margin-left: 5px;
+      margin-left: 2px;
       text-decoration: none;
-      padding-top: 4px;
+      text-align: center;
+      padding-top: 7px;
       width: 97px;
-      height: 22px;
-
-
-
+      height: 19px;
+      /*background-image: url(../img/077.gif);*/
     }
 
+    #nav li a#current{
+      background-color: #2788da;
+      color: #ffffff;
+    }
+
+    #nav li a:hover{
+      background-color: #bbbbbb;
+      color: #ffffff;
+    }
 
 
   </style>
 </head>
 <body>
 <ul id="nav">
-  <li><a href="#">首  页</a></li>
+  <li><a href="#" id="current">首  页</a></li>
   <li><a href="#">首  页</a></li>
   <li><a href="#">首  页</a></li>
   <li><a href="#">首  页</a></li>
