@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="../jquery-1.11.3.js"></script>
+  <script>
+    function demo1() {
+      alert('in demo1');
+    }
+  </script>
+</head>
+<body>
+<p id="p1">点击我1</p> <!--p is block element-->
+<p id="p2">点击我2</p>
+<script>
+  function demo2() {
+    alert('in demo2');
+  }
+  //如果onclick绑定多个事件，多个都起作用
+  document.getElementById('p1').onclick = demo1;//如果写成 =demo2()不会调用
+  //    $('#p1').click(demo2);
+  $('#p2').click(demo2);  //要传方法名，不能写demo2()
+  $('#p2').click(function () {
+    alert("in self");
+  });
+
+  $(function () {
+    if (!$('#ppp')) {// jquery获取的永远是对象，无论元素是否存在
+      alert('obj');
+    }
+    if ($('#ppp').length == 0) {
+      alert('obj.length');
+    }
+  });
+
+
+</script>
+</body>
+</html>

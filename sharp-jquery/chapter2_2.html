@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>chapter 2 : selector</title>
+  <style>
+    div, span, p {
+      width: 300px;
+      height: 300px;
+      margin: 5px;
+      background-color: #aaaaaa;
+      border: #000000 1px solid;
+      float: left;
+      font-size: 17px;
+      font-family: Verdana;
+    }
+
+    div.mini {
+      width: 90px;
+      height: 90px;
+      background-color: #aaaaaa;
+      font-size: 12px;
+    }
+
+    div.hide {
+      display: none;
+    }
+  </style>
+  <script src="../jquery-1.11.3.js"></script>
+</head>
+<body>
+<div class="one" id="one">
+  div has class="one" id="one"
+  <div class="mini">class is mini</div>
+</div>
+<div class="one" id="two" title="test">  <!--title 属性规定关于元素的额外信息。这些信息通常会在鼠标移到元素上时显示一段工具提示文本（tooltip text）。-->
+  div has class="one" id="two" title="test"
+  <div class="mini">class is mini</div>
+</div>
+<div class="one">
+  <div class="mini">class is mini</div>
+  <div class="mini">class is mini</div>
+  <div class="mini">class is mini</div>
+  <div class="mini"></div>
+</div>
+<div class="one">
+  <div class="mini">class is mini</div>
+  <div class="mini">class is mini</div>
+  <div class="mini">class is mini</div>
+  <div class="mini" title="test">div has class="mini" title="test"</div>
+</div>
+<div style="display: none;" class="none">div has style="display: none;" class="none"</div>
+<div class="hide">div has class="hide"</div>
+<div>
+  div include of hidden input<input type="hidden" size="8">
+</div>
+<span id="mover">moving span</span>
+<script>
+  //  alert("1");// be called
+  function foo() {
+    alert("foo");//not be called
+  }
+  var color = "#bbffaa";
+  function changeColor(obj) {
+    $('div,span,p').css("background-color", "#aaaaaa");
+    obj.css("background-color", color);
+  }
+
+
+  $(function () {
+//    alert('onload');//onload是body形成，这些语句执行完后才会执行
+  });
+  changeColor($('#one'));
+  changeColor($('.mini'));
+
+
+</script>
+</body>
+</html>

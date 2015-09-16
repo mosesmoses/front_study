@@ -4,58 +4,85 @@
   <meta charset="UTF-8">
   <title>下拉式菜单</title>
   <style>
-    ul{
+    ul {
       padding: 0;
       margin: 0;
       list-style: none;
     }
-    li{
+
+    li {
       float: left;
       width: 160px;
     }
-    li ul{
+
+    li ul {
       display: none;
-      top: 20px;
+      top: 200px;
     }
 
+    /*li:hover ul {*/
+    /*display: block;*/
+    /*}*/
 
-
+    li.over ul {
+      display: block;
+    }
   </style>
-
-
-
-
 </head>
 <body>
 <ul id="nav">
-  <li><a href="">文章</a></li>
-  <ul>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-  </ul>
-  <li><a href="">文章2</a></li>
-  <ul>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-  </ul>
-  <li><a href="">文章3</a></li>
-  <ul>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-    <li><a href="">CSS教程</a></li>
-  </ul>
-
-
-
+  <li><a href="">文章</a>
+    <ul>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+    </ul>
+  </li>
+  <li><a href="">文章2</a>
+    <ul>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+    </ul>
+  </li>
+  <li><a href="">文章3</a>
+    <ul>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+      <li><a href="">CSS教程</a></li>
+    </ul>
+  </li>
 </ul>
+<script>/*FIXME use JQUERY*/
+  function startList() {
+    alert('in startList');
+    if (document.all) {
+      alert('is IE');
+    }
+    var navRoot = document.getElementById("nav");
+    for (var i = 0; i < navRoot.childNodes.length; i++) {
+      var node = navRoot.childNodes[i];
+      if (node.nodeName == "LI") {
+        node.onmouseover = function () {
+          this.className += " over";
+        }
+        node.onmouseout = function () {
+          this.className = this.className.replace(" over", "");
+        }
+      }
+    }
+  }
+
+  window.onload = startList();
+
+
+</script>
 
 </body>
 </html>
