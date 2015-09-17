@@ -35,10 +35,11 @@
 </div>
 <div class="one" id="two" title="test">  <!--title 属性规定关于元素的额外信息。这些信息通常会在鼠标移到元素上时显示一段工具提示文本（tooltip text）。-->
   div has class="one" id="two" title="test"
-  <div class="mini">class is mini</div>
+  <div class="mini" title="other">class is mini, title="other"</div>
+  <div class="mini" title="test">class is mini, title="test"</div>
 </div>
 <div class="one">
-  <div class="mini">class is mini</div>
+  <div class="mini">class is mini()</div>
   <div class="mini">class is mini</div>
   <div class="mini">class is mini</div>
   <div class="mini"></div>
@@ -62,16 +63,46 @@
   }
   var color = "#bbffaa";
   function changeColor(obj) {
-    $('div,span,p').css("background-color", "#aaaaaa");
+//    $('div,span,p').css("background-color", "#aaaaaa");
+    $('body *').css("background-color", "#aaaaaa");
     obj.css("background-color", color);
   }
 
-
   $(function () {
 //    alert('onload');//onload是body形成，这些语句执行完后才会执行
-  });
-  changeColor($('#one'));
-  changeColor($('.mini'));
+  })
+
+  function animateIt(){
+    $('#mover').slideToggle('slow', animateIt);
+  }
+//  animateIt();
+
+  /*基本选择器*/
+  changeColor($('#one')); //given id
+  changeColor($('.mini')); //given class, .class
+  changeColor($('div')); //given element
+  changeColor($('span, #two'));  //selector1, selector2, selectorN... 集合每个selector结果
+  /*层次选择器*/
+  changeColor($('body div')); //ancestor descendant， body的所有div后代
+  changeColor($('body>div'));//parent>child  body的所有div子元素
+  changeColor($('.one+div')); //selector next selector,  same with JQuery.next()
+  changeColor($('.one').next('div')); //selector next selector
+  changeColor($('.one~div')); //prev~siblings  prev后所有兄弟级别的div元素
+  changeColor($('#two').nextAll('div'));//prev~siblings  prev后所有兄弟级别的div元素
+  changeColor($('#two').siblings('div'));//prev~siblings  prev所有兄弟级别的div元素
+  /*过滤选择器.基本*/
+  changeColor($('div:first'));
+  changeColor($('div:last'));
+  changeColor($('div:not(.one)'));
+  changeColor($('div:even'));//集合中所有偶数 index from 0
+  changeColor($('div:odd'));//集合中所有奇数 index from 0
+  changeColor($('div:eq(3)'));//index,
+  changeColor($('div:gt(3)')); //great than
+  changeColor($('div:lt(3)')); //less than
+  changeColor($(':header'));// change h1,h2....
+  changeColor($(':animated'));// change mover
+  /*过滤选择器.内容*/
+  changeColor($('div:contains(")'));
 
 
 </script>
