@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>CAMERA</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+
+    li {
+      text-decoration: none;
+      float: left;
+      width: 33%;
+    }
+
+    a {
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    .showmore {
+      /*margin: 10px 500px 10px 500px;*/
+      clear: left;
+      /*width: 20%;*/
+      border: 2px solid rgb(92, 84, 123);
+    }
+
+    .showmore a span {
+      /*display: block;*/
+    }
+
+    .showmore a span {
+      /*padding-left: 50px;*/
+    }
+  </style>
+
+  <!-- 新 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="../jquery-1.11.3.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="SubCategoryBox">
+  <ul>
+    <li><a href="#">佳能1<i>(30440)</i></a></li>
+    <li><a href="#">佳能2<i>(30440)</i></a></li>
+    <li><a href="#">佳能3<i>(30440)</i></a></li>
+    <li><a href="#">佳能4<i>(30440)</i></a></li>
+    <li><a href="#">佳能5<i>(30440)</i></a></li>
+    <li><a href="#">佳能6<i>(30440)</i></a></li>
+    <li><a href="#">佳能7<i>(30440)</i></a></li>
+    <li><a href="#">佳能8<i>(30440)</i></a></li>
+    <li><a href="#">佳能9<i>(30440)</i></a></li>
+    <li><a href="#">佳能10<i>(30440)</i></a></li>
+    <li><a href="#">佳能11<i>(30440)</i></a></li>
+    <li><a href="#">佳能12<i>(30440)</i></a></li>
+    <li><a href="#">其他品牌相机<i>(30440)</i></a></li>
+  </ul>
+  <div class="showmore">
+    <a href="more.html"><span class="glyphicon glyphicon-chevron-down"></span><span>显示全部品牌</span></a>
+  </div>
+</div>
+<script>
+  var $aim = $('li:gt(5):not(:last)');
+
+  $(function () {
+    $aim.hide();
+    $('.showmore span:last').css('padding-left', '5px');
+  });
+
+  $('.showmore a').click(function () {
+    if ($('.showmore span:last').text() === '显示全部品牌') {
+      $aim.show();
+      $('.showmore span:last').text('精简显示品牌');
+      $('.showmore span:first').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+      $('ul li').filter(":contains('佳能2'),:contains('佳能3'),:contains('佳能4')").addClass("promoted");
+    } else {
+      $aim.hide();
+      $('.showmore span:last').text('显示全部品牌');
+      $('.showmore span:first').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+    }
+    return false;
+  });
+</script>
+</body>
+</html>

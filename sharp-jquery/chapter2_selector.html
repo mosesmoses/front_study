@@ -29,34 +29,44 @@
   <script src="../jquery-1.11.3.js"></script>
 </head>
 <body>
+
+<!--DIV 1-->
 <div class="one" id="one">
   div has class="one" id="one"
   <div class="mini">class is mini</div>
 </div>
+<!--DIV 2-->
 <div class="one" id="two" title="test">  <!--title 属性规定关于元素的额外信息。这些信息通常会在鼠标移到元素上时显示一段工具提示文本（tooltip text）。-->
   div has class="one" id="two" title="test"
   <div class="mini" title="other">class is mini, title="other"</div>
   <div class="mini" title="test">class is mini, title="test"</div>
 </div>
+<!--DIV 3-->
 <div class="one">
   <div class="mini">class is mini()</div>
   <div class="mini">class is mini</div>
   <div class="mini">class is mini</div>
   <div class="mini"></div>
 </div>
+<!--DIV 4-->
 <div class="one">
   <div class="mini">class is mini</div>
   <div class="mini">class is mini</div>
   <div class="mini">class is mini</div>
   <div class="mini" title="test">div has class="mini" title="test"</div>
 </div>
-<div style="display: none;" class="none">div has style="display: none;" class="none"</div>
+<!--DIV 5-->
+<div style="display: none;" class="none" title="hide element">div has style="display: none;" class="none"</div>
+<!--DIV 6-->
 <div class="hide">div has class="hide"</div>
+<!--DIV 7-->
 <div>
   div include of hidden input<input type="hidden" size="8">
 </div>
+<!--SPAN 8-->
 <span id="mover">moving span</span>
 <script>
+
   //  alert("1");// be called
   function foo() {
     alert("foo");//not be called
@@ -64,7 +74,7 @@
   var color = "#bbffaa";
   function changeColor(obj) {
 //    $('div,span,p').css("background-color", "#aaaaaa");
-    $('body *').css("background-color", "#aaaaaa");
+    $('*').css("background-color", "#aaaaaa");
     obj.css("background-color", color);
   }
 
@@ -72,10 +82,10 @@
 //    alert('onload');//onload是body形成，这些语句执行完后才会执行
   })
 
-  function animateIt(){
+  function animateIt() {
     $('#mover').slideToggle('slow', animateIt);
   }
-//  animateIt();
+  //  animateIt();
 
   /*基本选择器*/
   changeColor($('#one')); //given id
@@ -102,8 +112,22 @@
   changeColor($(':header'));// change h1,h2....
   changeColor($(':animated'));// change mover
   /*过滤选择器.内容*/
-  changeColor($('div:contains(")'));
-
+  changeColor($('div:contains(div)'));
+  changeColor($('div:empty'));// 不包含子元素(也没有文本元素的)div
+  changeColor($('div:has(:contains(\\(\\)))'));
+  changeColor($('div:parent'));// 包含子元素(或含有文本元素的)div
+  /*过滤选择器.可见性*/
+  changeColor($('div:visible'));
+//  $('div:hidden').show(4000);// hidden = display:none|visibility:hidden|input type="hidden" //4000 用4s时间将元素展示后一直展示
+  /*过滤选择器.属性*/
+  changeColor($('[title]'));// [] attribute-key
+  changeColor($('[title=test]'));
+//  changeColor($('[title!=test]'));/*没有title，title不等于test的都被选择*/
+  changeColor($('[title^=t]'));//title以t开头
+  changeColor($('[title$=t]'));//title以t结尾
+  changeColor($('[title*=e]'));//title含有e
+  changeColor($('[title$=t][title^=t]'));//并且，层层缩小
+  /*过滤选择器.子元素*/
 
 </script>
 </body>
