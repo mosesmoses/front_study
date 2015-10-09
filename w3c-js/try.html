@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+    var txt = "";
+    function message() {
+      try {
+        addlert("xx");
+      } catch (e) {
+        txt = "There was an error on this page.\n\n";
+        txt += "Error description: " + e.message + "\n\n" +e;
+        txt += "Click OK to continue.\n\n";
+        alert(txt);
+      }
+    }
+  </script>
+</head>
+<body>
+  <input type="button" value="Click me" onclick="message()">
+</body>
+</html>
