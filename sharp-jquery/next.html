@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .sub {
+            width: 200px;
+            height: 100px;
+            border: 2px solid red;
+            margin: 5px;
+            float: left;
+        }
+    </style>
+    <script src="../jslib/jquery-1.11.3.js"></script>
+</head>
+<body>
+<div id="container">
+    <div class="sub" id="div1">1</div>
+    <div class="sub" id="div2">2</div>
+    <div class="sub" id="div3" style="display: none">3</div>
+    <div class="sub" id="div4" style="display: none">4</div>
+    <div class="sub" id="div5" style="display: none">5</div>
+    <div class="sub" id="div6" style="display: none">6</div>
+    <div class="sub" id="div7" style="display: none">7</div>
+    <div class="sub" id="div8" style="display: none">8</div>
+    <div class="sub" id="div9" style="display: none">9</div>
+    <a id="more" href="#" onclick="more()">more </a>
+</div>
+<script>
+    function more() {
+        var $lastVisible = $('.sub:visible:last');
+        $lastVisible.nextUntil('.sub:eq('+($lastVisible.index()+9)+')').show();
+    }
+</script>
+
+
+</body>
+</html>
